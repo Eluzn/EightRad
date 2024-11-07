@@ -9,15 +9,12 @@
             margin: 0;
             font-family: 'Roboto', sans-serif;
             background-image: url('./img/bg.png');
-            background-blend-mode: overlay;
-            background-color: #333333;
             background-repeat: no-repeat;
             background-size: cover;
             color: #ffffff;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            backdrop-filter: blur(5px)
+            backdrop-filter: blur(3px)
         }
         .header {
             background-color: rgba(255, 255, 255, 0.151); /* Semi-transparent white for the header */
@@ -57,23 +54,19 @@
             margin-top: auto; /* Pins the footer to the bottom */
         }
         video {
-            height: 100%;
-            width: 100%;
+            flex: 1;
+            max-height: 100vh;
             text-align: center;
-            margin: auto autos;
+            top: 0;
         }
     </style>
 </head>
 <body>
-    
-    <div class="container">
-        <video id="eightrad" src="./img/Render-Black.webm" autoplay loop muted>
-        </video>
-    </div>
-
+    <video id="eightrad" src="./img/Render-Black.webm" autoplay loop muted>
+    </video>
 </body>
 <script>
     let vid = document.getElementById("eightrad");
-    vid.playbackRate = 0.75;
+    vid.playbackRate = 0.85;
 </script>
 </html>
