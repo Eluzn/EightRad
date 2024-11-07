@@ -8,16 +8,24 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #ffffff;
-            color: #333333;
+            background-image: url('./img/bg.png');
+            background-blend-mode: overlay;
+            background-color: #333333;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .header {
-            background-color: #6c757d;
-            color: white;
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white for the header */
+            backdrop-filter: blur(10px); /* Blurred effect */
             padding: 1rem 0;
             text-align: center;
         }
         .container {
+            flex: 1; /* Allows content to take up available space */
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
@@ -26,7 +34,6 @@
             text-align: center;
         }
         .hero {
-            background-image: url('https://via.placeholder.com/1200x400?text=Hero+Image');
             height: 400px;
             background-size: cover;
             background-position: center;
@@ -67,43 +74,18 @@
             color: white;
             text-align: center;
             padding: 1rem 0;
-            margin-top: 2rem;
+            margin-top: auto; /* Pins the footer to the bottom */
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>EightRad.com</h1>
-    </div>
-
-    <div class="hero">
-        <h1>Welcome to EightRad</h1>
-        <p>Your go-to platform for innovative solutions.</p>
-    </div>
-
-    <div class="container services">
-        <div class="service-card">
-            <h2>Service 1</h2>
-            <p>Description of Service 1.</p>
-        </div>
-        <div class="service-card">
-            <h2>Service 2</h2>
-            <p>Description of Service 2.</p>
-        </div>
-        <div class="service-card">
-            <h2>Service 3</h2>
-            <p>Description of Service 3.</p>
-        </div>
-    </div>
-
-    <div class="cta">
-        <h2>Get Started Today!</h2>
-        <a href="#" style="color: white; text-decoration: none;">Sign Up Now</a>
+        <h1>EightRad</h1>
     </div>
 
     <div class="footer">
-        <p>&copy; 2023 EightRad. All rights reserved.</p>
+        <p>&copy; 2024 EightRad. All rights reserved.</p>
     </div>
 
 </body>
