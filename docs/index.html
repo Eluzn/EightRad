@@ -67,9 +67,13 @@
 <body>
     
     <div class="container">
-        <video src="./img/Render-Black.webm" autoplay loop muted>
+        <video id="eightrad" src="./img/Render-Black.webm" autoplay loop muted>
         </video>
     </div>
 
 </body>
+<script>
+    let vid = document.getElementById("eightrad");
+    vid.playbackRate = 0.75;
+</script>
 </html>
