@@ -17,6 +17,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            backdrop-filter: blur(5px)
         }
         .header {
             background-color: rgba(255, 255, 255, 0.151); /* Semi-transparent white for the header */
@@ -58,19 +59,16 @@
         video {
             height: 100%;
             width: 100%;
+            text-align: center;
+            margin: auto autos;
         }
     </style>
 </head>
 <body>
     
-    <div class="header">
-        <h1>EightRad</h1>
-    </div>
     <div class="container">
-        <video src="./img/Render-Black.webm" autoplay loop></video>
-    </div>
-    <div class="footer">
-        <p>&copy; 2024 EightRad. All rights reserved.</p>
+        <video src="./img/Render-Black.webm" autoplay loop muted>
+        </video>
     </div>
 
 </body>
