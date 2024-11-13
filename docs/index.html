@@ -8,67 +8,86 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-image: url('./img/bg.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-color: #8b8f57b0;
-            background-blend-mode: multiply;
+            height: 100vh;
             color: #b6b6b6;
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(3px)
+            overflow: hidden;
+            display: flex; /* Enable flexbox layout for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center;    /* Center vertically */
         }
-        .header {
-            background-color: rgba(255, 255, 255, 0.151); /* Semi-transparent white for the header */
-            backdrop-filter: blur(10px); /* Blurred effect */
-            padding: 1rem 0;
-            text-align: center;
-        }
-        .container {
-            flex: 1; /* Allows content to take up available space */
-            max-width: 1200px;
-            text-align: center;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        h1, h2, p {
-            text-align: center;
-        }
-        .hero {
-            height: 400px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero h1 {
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-size: 3rem;
-        }
-        .footer {
-            background-color: rgba(255, 255, 255, 0.151); /* Semi-transparent white for the header */
-            backdrop-filter: blur(10px); /* Blurred effect */
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: auto; /* Pins the footer to the bottom */
-        }
-        video {
-            flex: 1;
-            max-height: 100vh;
-            text-align: center;
+
+        .bg-container {  /* New container for background and blur */
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
         }
+
+        .bg {
+            background-image: url("./img/bg.png");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: absolute; /* Absolute positioning within container */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bg-blur {  /* Div for the blurred background */
+            background-image: url("./img/bg.png");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: absolute; /* Absolute positioning within container */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: url(#radialBlur);
+            background-color: rgba(139, 143, 87, 0.7);
+            mix-blend-mode: multiply; /* Multiply blend mode on blurred image */
+        }
+
+
+        video {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
+
+
     </style>
 </head>
 <body>
-    <video id="eightrad" src="./img/Render-Black.webm" autoplay loop muted>
+
+    <div class="bg-container">
+        <div class="bg"></div>              <!-- Original background -->
+        <div class="bg-blur"></div>          <!-- Blurred background on top -->
+    </div>
+
+    <video id="eightrad" autoplay loop muted playsinline>
+        <source src="./img/Render-Black.webm" type="video/webm">
+        Your browser doesn't support HTML5 video.
     </video>
+
+
+    <svg style="display: none;">
+        <filter id="radialBlur" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blurred"/>
+            <feComposite in="blurred" in2="SourceGraphic" operator="over"/>
+        </filter>
+    </svg>
+
+    <script>
+        let vid = document.getElementById("eightrad");
+        vid.playbackRate = 0.85;
+    </script>
+
 </body>
-<script>
-    let vid = document.getElementById("eightrad");
-    vid.playbackRate = 0.85;
-</script>
 </html>
